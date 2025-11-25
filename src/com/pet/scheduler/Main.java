@@ -1,12 +1,15 @@
 package com.pet.scheduler;
 
 import java.util.*;
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
         // Create a Scanner object for reading input
         Scanner scanner = new Scanner(System.in);
         HashMap<Integer, Pet> map = new HashMap<>();
+
+        map.put(1, new Pet(1,"Buddy","Golden Retriever",3,"Alice Johnson","alice@gmail.com",LocalDate.of(2024, 5, 12)));
         //ArrayList<Appointment> appointment = new ArrayList<>();
 
          // Auto-Load data during program run , It will work as a Local database
@@ -16,7 +19,7 @@ public class Main {
         try {
             // Display the menu and process user choices in a loop
             while (true) {
-                System.out.println("===================================");
+                 //System.out.println("----------------------");
                 System.out.println(
                         "Press 1 for Pet Registration\nPress 2 for Appointment\nPress 3 for Display Details\nPress 4 for Generate Reports\nPress 5 for Save Data\nPress 6 for Exit");
                 System.out.print("Please Select one option : ");
@@ -36,17 +39,17 @@ public class Main {
                         break;
 
                     case 3: // Display Details
-                        System.out.println("===================================");
-                       
+                        petService.display(map);
+
                         break;
 
                     case 4: // Generate Reports
                         System.out.println("===================================");
-                       
+
                         break;
 
                     case 5: // Save Data
-                       
+
                         break;
 
                     case 6:

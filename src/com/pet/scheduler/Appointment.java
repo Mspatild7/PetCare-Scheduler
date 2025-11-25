@@ -5,25 +5,25 @@ import java.time.LocalDateTime;
 
 public class Appointment {
 
-    private String appointmentType;
-    private LocalDateTime schedule;
+    private AppointmentType appointmentType;
+    private LocalDateTime appointmentDateTime;
     private String notes;
 
 
-   public Appointment(String appointmentType, LocalDateTime appointment, String notes){
+   public Appointment(AppointmentType appointmentType, LocalDateTime appointmentDateTime, String notes){
        this.appointmentType = appointmentType;
-       this.schedule = schedule;
+       this.appointmentDateTime = appointmentDateTime;
        this.notes = notes;
    }
 
    //getters
 
-  public String getappointmentType(){
+  public AppointmentType getAppointmentType(){
       return appointmentType;
   }
 
-  public LocalDateTime getSchedule(){
-      return schedule;
+  public LocalDateTime getAppointmentDateTime(){
+      return appointmentDateTime;
   }
 
   public String getNotes(){
@@ -31,19 +31,23 @@ public class Appointment {
   }
 
   //setters
-  public void setappointmentType(String appointmentType){
+  public void setAppointmentType(AppointmentType appointmentType){
       this.appointmentType = appointmentType;
   }
 
-  public void setSchedule(LocalDateTime schedule){
+  /*public void setSchedule(LocalDateTime schedule){
       this.schedule = schedule;
-  }
+  }*/
 
   public void setNotes(String notes){
       this.notes = notes;
   }
 
-  public String toString(){
-      return "Appointment [appointmentType=" + appointmentType + ", schedule=" + schedule + ", notes=" + notes + "]";
-  }
+  @Override
+public String toString() {
+    return "Type:        " + appointmentType + "\n" +
+           "Date/Time:   " + appointmentDateTime + "\n" +
+           "Notes:       " + notes + "\n" +
+           "----------------------";
+}
 }

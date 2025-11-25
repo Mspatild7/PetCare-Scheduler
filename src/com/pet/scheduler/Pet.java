@@ -12,7 +12,7 @@ public class Pet {
     private String ownerName;
     private String contactInfo;
     private LocalDate regDate;
-    private ArrayList<Appointment>appointment;
+    private ArrayList<Appointment> appointments;
 
     public Pet(int uniqueId , String name , String breed , int age , String ownerName, String contactInfo, LocalDate regDate){
         this.uniqueId = uniqueId;
@@ -22,7 +22,7 @@ public class Pet {
         this.ownerName = ownerName;
         this.contactInfo = contactInfo;
         this.regDate = regDate;
-        this.appointment = new ArrayList<>();
+        this.appointments = new ArrayList<>();
     }
 
     //getters and setters
@@ -54,8 +54,8 @@ public class Pet {
         return regDate;
     }
 
-    public ArrayList<Appointment> getappointment(){
-        return appointment;
+    public ArrayList<Appointment> getAppointment(){
+        return appointments;
     }
 
     // Setters
@@ -88,20 +88,30 @@ public class Pet {
         this.regDate = regDate;
     }
 
-    public void setappointment(ArrayList<Appointment> appointment){
-        this.appointment = appointment;
+    public void setAppointment(ArrayList<Appointment> appointment){
+        this.appointments = appointment;
     }
 
     public void addAppointment(Appointment appointment){
-        this.appointment.add(appointment);
+        this.appointments.add(appointment);
     }
 
     public void removeAppointment(Appointment appointment){
-        this.appointment.remove(appointment);
+        this.appointments.remove(appointment);
     }
 
-    public String toString(){
-        return "Pet [uniqueId=" + uniqueId + ", name=" + name + ", breed=" + breed + ", age=" + age + ", ownerName=" + ownerName + ", contactInfo=" + contactInfo + ", regDate=" + regDate + ", appointment=" + appointment + "]";
-        
-    }
+    @Override
+public String toString() {
+    return "Pet Details: \n" +
+           "----------------------\n" +
+           "Unique ID:    " + uniqueId + "\n" +
+           "Name:         " + name + "\n" +
+           "Breed:        " + breed + "\n" +
+           "Age:          " + age + "\n" +
+           "Owner:        " + ownerName + "\n" +
+           "Contact:      " + contactInfo + "\n" +
+           "Reg Date:     " + regDate + "\n" +
+           "Appointments: " + appointments.size() + "\n" +
+           "----------------------";
+}
 }

@@ -6,69 +6,83 @@ import java.time.format.DateTimeFormatter;
 
 public class InputHelper {
 
-
     private Scanner scanner;
     private int id = 0;
 
-    public InputHelper(Scanner scanner){
+    public InputHelper(Scanner scanner) {
         this.scanner = scanner;
     }
 
-    public Integer userChoice(){
+    public Integer userChoice() {
         Integer choice = scanner.nextInt();
-        //scanner.nextLine();
+        // scanner.nextLine();
         return choice;
     }
 
-    public int petId(){
-        System.out.println(id);
+    public int petId() {
         ++id;
         return id;
     }
 
-    public String petName(){
+    public String petName() {
         System.out.print("Enter Pet Name : ");
         return scanner.nextLine();
     }
 
-    public String petBreed(){
+    public String petBreed() {
         System.out.print("Enter Pet Breed : ");
         return scanner.nextLine();
     }
 
-    public int petAge(){
+    public int petAge() {
         System.out.print("Enter Pet Age : ");
         int age = scanner.nextInt();
         scanner.nextLine();
         return age;
     }
 
-    public String petOwnerName(){
+    public String petOwnerName() {
         System.out.print("Enter Pet Owner Name : ");
         return scanner.nextLine();
     }
-    public String petContactInfo(){
+
+    public String petContactInfo() {
         System.out.print("Enter Pet Contact Info : ");
         return scanner.nextLine();
     }
 
-    public LocalDate petRegDate(){
+    public LocalDate petRegDate() {
         return LocalDate.now();
     }
 
-    public String petappointmentType(){
-        System.out.print("Enter Appointment Type : ");
-        return scanner.nextLine();
+    public AppointmentType petappointmentType() {
+        
+        System.out.println("1. Vet Visit");
+        System.out.println("2. Grooming");
+        System.out.println("3. Vaccination");
+        System.out.print("Choose Appointment Type: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        AppointmentType type = switch (choice) {
+            case 1 -> AppointmentType.VET_VISIT;
+            case 2 -> AppointmentType.GROOMING;
+            case 3 -> AppointmentType.VACCINATION;
+            default -> null;
+        };
+
+        return type;
+
     }
 
-    public LocalDateTime petSchedule(){
+    public LocalDateTime petSchedule() {
         System.out.print("Enter Appointment Date and Time (dd-MM-yyyy HH:mm): ");
         String localDateTime = scanner.nextLine();
         System.out.println(localDateTime);
         return LocalDateTime.parse(localDateTime, DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
     }
 
-    public String petNotes(){
+    public String petNotes() {
         System.out.print("Please Describe pet behaviour : ");
         return scanner.nextLine();
     }
