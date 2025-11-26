@@ -9,6 +9,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         HashMap<Integer, Pet> map = new HashMap<>();
 
+        DataManager.loadData(map);
+
         map.put(1, new Pet(1,"Buddy","Golden Retriever",3,"Alice Johnson","alice@gmail.com",LocalDate.of(2024, 5, 12)));
         //ArrayList<Appointment> appointment = new ArrayList<>();
 
@@ -40,16 +42,15 @@ public class Main {
 
                     case 3: // Display Details
                         petService.display(map);
-
                         break;
 
                     case 4: // Generate Reports
                         System.out.println("===================================");
-
+                        petService.generateReports(map);
                         break;
 
                     case 5: // Save Data
-
+                        DataManager.saveData(map);
                         break;
 
                     case 6:

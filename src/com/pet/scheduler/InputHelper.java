@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 public class InputHelper {
 
     private Scanner scanner;
-    private int id = 0;
+    static int id = 0;
 
     public InputHelper(Scanner scanner) {
         this.scanner = scanner;
