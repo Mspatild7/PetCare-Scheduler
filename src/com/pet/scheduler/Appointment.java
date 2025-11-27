@@ -2,6 +2,8 @@ package com.pet.scheduler;
 
 import java.time.LocalDateTime;
 
+import org.json.JSONObject;
+
 public class Appointment {
 
     private AppointmentType appointmentType;
@@ -51,7 +53,12 @@ public class Appointment {
                 "----------------------";
     }
 
-    public String toJson(){
-        return "{" + "\"appointmentType\":\"" + appointmentType + "\",\"appointmentDateTime\":\"" + appointmentDateTime + "\",\"notes\":\"" + notes + "\"}"; 
-    }
+    public JSONObject toJson() {
+    JSONObject obj = new JSONObject();
+    obj.put("appointmentType", appointmentType.toString());
+    obj.put("appointmentDateTime", appointmentDateTime.toString());
+    obj.put("notes", notes);
+    return obj;
+}
+
 }

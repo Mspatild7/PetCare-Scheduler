@@ -1,5 +1,5 @@
 [
-{"uniqueID":1,"name":"Buddy","breed":"Golden Retriever","age":3,"ownerName":"Alice Johnson","contactInfo":"alice@gmail.com","regDate":"2024-05-12","Appointments":[]},
-{"uniqueID":2,"name":"Bruno","breed":"German Shepherd","age":4,"ownerName":"Amit Sharma","contactInfo":"9998887770","regDate":"2025-10-14","Appointments":[{"appointmentType":"VACCINATION","appointmentDateTime":"2025-12-10T09:20","notes":"Rabies booster"},{"appointmentType":"VET_VISIT","appointmentDateTime":"2025-11-27T09:11","notes":"happy"}]},
-{"uniqueID":3,"name":"Simba","breed":"Pug","age":1,"ownerName":"Neha Joshi","contactInfo":"8080808080","regDate":"2026-01-01","Appointments":[]}
+{"uniqueId":1,"name":"Buddy","breed":"Golden Retriever","age":3,"ownerName":"Alice Johnson","contactInfo":"alice@gmail.com","regDate":"2024-05-12","appointments":[]},
+{"uniqueId":2,"name":"Bruno","breed":"German Shepherd","age":4,"ownerName":"Amit Sharma","contactInfo":"9998887770","regDate":"2025-10-14","appointments":[{"appointmentType":"VACCINATION","notes":"Rabies booster","appointmentDateTime":"2025-12-10T09:20"},{"appointmentType":"VET_VISIT","notes":"happy","appointmentDateTime":"2025-11-27T09:11"}]},
+{"uniqueId":3,"name":"Simba","breed":"Pug","age":1,"ownerName":"Neha Joshi","contactInfo":"8080808080","regDate":"2026-01-01","appointments":[]}
 ]

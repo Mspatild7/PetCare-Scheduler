@@ -9,17 +9,24 @@ import org.json.*;
 
 public class DataManager {
 
-    public static void saveData(HashMap<Integer, Pet> map) {
+   public static void saveData(HashMap<Integer, Pet> map) {
     try {
-        JSONArray array = new JSONArray();
+        BufferedWriter bw = new BufferedWriter(new FileWriter("pet.json"));
+        bw.write("[\n");
+
+        int index = 0;
+        int size = map.size();
+
         for (Pet p : map.values()) {
-            array.put(p.toJson());
+            bw.write(p.toJson());
+            if (index < size - 1) {
+                bw.write(",\n"); // separate objects in array
+            }
+            index++;
         }
 
-        FileWriter fw = new FileWriter("pet.json");
-        fw.write(array.toString(4));
-        fw.flush();
-        fw.close();
+        bw.write("\n]");
+        bw.close();
         System.out.println("Data Saved Successfully.");
     } catch (Exception e) {
         System.out.println("Error saving data: " + e.getMessage());
@@ -45,7 +52,7 @@ public class DataManager {
             for (int i = 0; i < array.length(); i++) {
                 JSONObject obj = array.getJSONObject(i);
 
-                int id = obj.getInt("uniqueID");
+                int id = obj.getInt("uniqueId");
                 Pet pet = new Pet(
                         id,
                         obj.getString("name"),
@@ -55,7 +62,7 @@ public class DataManager {
                         obj.getString("contactInfo"),
                         LocalDate.parse(obj.getString("regDate")));
 
-                JSONArray appts = obj.getJSONArray("Appointments");
+                JSONArray appts = obj.getJSONArray("appointments");
                 for (int j = 0; j < appts.length(); j++) {
                     JSONObject a = appts.getJSONObject(j);
                     AppointmentType type = AppointmentType.valueOf(a.getString("appointmentType"));

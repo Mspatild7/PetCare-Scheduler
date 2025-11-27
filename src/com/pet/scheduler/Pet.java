@@ -120,7 +120,7 @@ public class Pet {
         // Start household JSON
         StringBuilder json = new StringBuilder();
         json.append("{");
-        json.append("\"uniqueID\":").append(uniqueId).append(",");
+        json.append("\"uniqueId\":").append(uniqueId).append(",");
         json.append("\"name\":\"").append(name).append("\",");
         json.append("\"breed\":\"").append(breed).append("\",");
         json.append("\"age\":").append(age).append(",");
@@ -128,7 +128,7 @@ public class Pet {
         json.append("\"contactInfo\":\"").append(contactInfo).append("\",");
         json.append("\"regDate\":\"").append(regDate).append("\",");
 
-        json.append("\"Appointments\":[");
+        json.append("\"appointments\":[");
         for (int i = 0; i < appointments.size(); i++) {
             json.append(appointments.get(i).toJson());
             if (i < appointments.size() - 1) {
